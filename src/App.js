@@ -73,31 +73,34 @@ function App() {
 
   return (
     <div className="App">
-      <h1>TO DO LIST</h1>
-      <div className="addInput">
-        <Input onChange = {handleChange} value = {todo}/>
-        <button onClick = {handleClick} className = "btn">ADD</button>
+      <div className = "block">
+        <h1>TO DO LIST</h1>
+        <div className="addInput">
+          <Input onChange = {handleChange} value = {todo}/>
+          <button onClick = {handleClick} className = "btn">ADD</button>
+        </div>
+
+
+        {todos.map((item)=><div key = {item.id} className = "list">
+          <input 
+            type ="checkbox" 
+            onChange = {()=>toggelecheck(item.id)} 
+            checked = {item.completed}
+          /> 
+            <div className = "itemToShow">
+              {item.text}
+            </div>
+            <button onClick = {()=>handleDelete(item.id)}>Delete</button>
+            {editingTodo === item.id ? (
+              <>
+              <input type ="text" onChange = {(e)=>seteditingText(e.target.value)} value ={editingText} />
+              <button onClick ={()=>handleSave(item.id)}>Save</button>
+              </>
+            ): (<button onClick = {()=>setEditingTodo(item.id)}>Edit</button>)}
+            
+            </div>
+        )}
       </div>
-
-
-      {todos.map((item)=><div key = {item.id} className = "list">
-          
-          <div className = "itemToShow"><input 
-                                          type ="checkbox" 
-                                          onChange = {()=>toggelecheck(item.id)} 
-                                          checked = {item.completed}/>
-                                          {item.text}
-          </div>
-          <button onClick = {()=>handleDelete(item.id)}>Delete</button>
-          {editingTodo === item.id ? (
-            <>
-            <input type ="text" onChange = {(e)=>seteditingText(e.target.value)} value ={editingText} />
-            <button onClick ={()=>handleSave(item.id)}>Save</button>
-            </>
-          ): (<button onClick = {()=>setEditingTodo(item.id)}>Edit</button>)}
-           
-          </div>
-      )}
       </div>
   );
 }
