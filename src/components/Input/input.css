@@ -1,0 +1,8 @@
+.task{
+    font-size: 20px;
+    align-items: center;
+    justify-content: baseline;
+    outline: none;
+    border: none;
+    border-bottom: orangered 3px solid;
+}

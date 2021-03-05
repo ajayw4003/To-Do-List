@@ -1,0 +1,48 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.btn{
+  height: 40px;
+  width: 70px;
+  font-weight: 200;
+  color: rgb(10, 10, 10);
+  background-color: lightcyan;
+  font-weight: bold;
+  font-size: larger;
+  border-radius: 5px;
+}
+
+.addInput{
+  display: flex;
+  justify-content: center;
+}
+.list{
+ display: flex;
+  justify-content: center;
+  text-align: center;
+
+}
+button{
+  border-radius: 5px;
+  padding: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.itemToShow{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
