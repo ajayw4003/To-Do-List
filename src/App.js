@@ -5,9 +5,10 @@ import Input from "./components/Input/Input";
 
 function App() {
   const [todos, settodos] = useState([]);
-  const [todo, settodo] = useState("");
+  const [todo, settodo] = useState(" ");
   const [editingTodo, setEditingTodo] = useState(null);
   const [editingText, seteditingText] = useState("");
+  
 
 //to load data on refreshing page
  useEffect(() => {
@@ -27,10 +28,16 @@ function App() {
   }, [todos])
 
   const handleChange = (e)=>{
+ 
     settodo(e.target.value)
   }
 
   const handleClick = ()=>{
+    if(todo === " "){
+      // console.log("Empty TO DO");
+      return;
+    }
+ 
     const newTodo = {
       id:new Date().getTime(),
       text:todo,
@@ -39,7 +46,7 @@ function App() {
     settodos(
      [...todos,newTodo]
     )
-    settodo("")
+    settodo(" ");
   }
   const handleDelete = (id)=>{
     const updatedTodo = todos.filter((item)=> item.id !== id)
@@ -76,7 +83,7 @@ function App() {
       <div className = "block">
         <h1>TO DO LIST</h1>
         <div className="addInput">
-          <Input onChange = {handleChange} value = {todo}/>
+          <Input onChange = {handleChange} value = {todo} id = "input"/>
           <button onClick = {handleClick} className = "btn">ADD</button>
         </div>
 
